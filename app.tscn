@@ -1,0 +1,108 @@
+[gd_scene load_steps=3 format=3 uid="uid://buvkgg41ssd7l"]
+
+[ext_resource type="Script" path="res://App.gd" id="1_wlh46"]
+[ext_resource type="Texture2D" uid="uid://cdnskym44150k" path="res://icon.svg" id="2_sttky"]
+
+[node name="App" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wlh46")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "Name:"
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "lalatest"
+
+[node name="Label2" type="Label" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "Prompt:"
+
+[node name="TextEdit2" type="TextEdit" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "cyberpunk, druid, Darkest dungeon style, extremely detailed, (full body portrait), standing, colorful, boots, neon, lovecraft, stunning, 4K, precise, sharp lines"
+
+[node name="Label3" type="Label" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "Matrix Prompt (,):"
+
+[node name="TextEdit3" type="TextEdit" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "rag costume,moss, nude"
+
+[node name="Button" type="Button" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "Generate"
+
+[node name="Label4" type="Label" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Keep seed"
+alignment = 1
+
+[node name="Label5" type="Label" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "Authority (CFG scale):"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 30.0
+value = 7.0
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Euler a"
+popup/item_0/id = 2
+popup/item_1/text = "Heun"
+popup/item_1/id = 1
+popup/item_2/text = "DDIM"
+popup/item_2/id = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label5" type="Label" parent="HBoxContainer/HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HSplitContainer/VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_sttky")
+stretch_mode = 4
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
